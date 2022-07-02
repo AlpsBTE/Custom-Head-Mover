@@ -11,3 +11,6 @@ commands:
   loadheads:
     description: Saves the heads.
     usage: /loadheads
+  chmreload:
+    description: Reloads the config.
+    usage: /chmreload

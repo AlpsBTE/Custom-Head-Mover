@@ -1,6 +1,7 @@
 package com.alpsbte.customheadmover;
 
 import com.alpsbte.customheadmover.commands.LoadHeadsCMD;
+import com.alpsbte.customheadmover.commands.ReloadPluginCMD;
 import com.alpsbte.customheadmover.commands.SaveHeadsCMD;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -53,6 +54,7 @@ public class CustomHeadMover extends JavaPlugin {
 
         Objects.requireNonNull(this.getCommand("saveheads")).setExecutor(new SaveHeadsCMD());
         Objects.requireNonNull(this.getCommand("loadheads")).setExecutor(new LoadHeadsCMD());
+        Objects.requireNonNull(this.getCommand("chmreload")).setExecutor(new ReloadPluginCMD());
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Successfully enabled Custom-Head-Mover plugin.");
     }
