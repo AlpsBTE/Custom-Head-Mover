@@ -32,7 +32,6 @@ public class CustomHeadMover extends JavaPlugin {
         reloadConfig();
 
         SkullCreator.headsFile = Paths.get(getDataFolder().getAbsolutePath(), "heads.json").toFile();
-        SkullCreator.pasteOffset = getConfig().getInt("paste-offset");
 
         String packageName = this.getServer().getClass().getPackage().getName();
         String version = packageName.substring(packageName.lastIndexOf('.') + 1);
@@ -71,6 +70,7 @@ public class CustomHeadMover extends JavaPlugin {
         }
 
         saveConfig();
+        SkullCreator.pasteOffset = getConfig().getInt("paste-offset");
     }
 
     @Override
