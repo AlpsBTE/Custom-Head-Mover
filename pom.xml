@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.alpsbte.customheadmover</groupId>
+    <artifactId>Custom-Head-Mover</artifactId>
+    <packaging>pom</packaging>
+    <version>parent</version>
+
+    <name>Custom Head Mover</name>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>API</module>
+        <module>v1_12_R1</module>
+        <module>v1_18_R2</module>
+        <module>Plugin</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>enginehub-maven</id>
+            <url>https://maven.enginehub.org/repo/</url>
+        </repository>
+        <repository>
+            <id>spigotmc-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>minecraft-repo</id>
+            <url>https://libraries.minecraft.net/</url>
+        </repository>
+        <repository>
+            <id>alpsbte-repo</id>
+            <url>https://mvn.alps-bte.com/repository/alps-bte/</url>
+        </repository>
+        <repository>
+            <id>skullcreator-repo</id>
+            <url>https://github.com/deanveloper/SkullCreator/raw/mvn-repo/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+            <version>1.5.21</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>23.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.dbassett</groupId>
+            <artifactId>skullcreator</artifactId>
+            <version>3.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>

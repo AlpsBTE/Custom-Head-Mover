@@ -1,0 +1,13 @@
+name: CustomHeadMover
+version: '${project.version}'
+main: com.alpsbte.customheadmover.CustomHeadMover
+api-version: 1.18
+authors: [ R3tuxn ]
+
+commands:
+  saveheads:
+    description: Loads the heads.
+    usage: /saveheads
+  loadheads:
+    description: Saves the heads.
+    usage: /loadheads
