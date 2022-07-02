@@ -37,13 +37,16 @@ public abstract class SkullCreator {
     protected void saveSkulls(Player player) {
         if (getWorldEditSelection(player) != null) {
             try {
-                saveHeadsToFile(getSkulls(getWorldEditSelection(player)));
-                return;
+                ArrayList<CustomHead> heads = getSkulls(getWorldEditSelection(player));
+                if (saveHeadsToFile(heads)) {
+                    player.sendMessage(Utils.getInfoMessageFormat("Successfully saved §6" + heads.size() + " §aheads!"));
+                    return;
+                }
             } catch (IOException ex) {
                 Bukkit.getLogger().log(Level.SEVERE, ex.getMessage(), ex);
             }
-            player.sendMessage("An error occurred while saving heads! Please try again!");
-        } else player.sendMessage("Please select a WorldEdit region!");
+            player.sendMessage(Utils.getErrorMessageFormat("An error occurred while saving heads! Please try again!"));
+        } else player.sendMessage(Utils.getErrorMessageFormat("Please select a WorldEdit region!"));
     }
 
     protected void loadSkulls(Player player) {
@@ -52,11 +55,12 @@ public abstract class SkullCreator {
             for (CustomHead head : heads) {
                 setSkull(head, player.getWorld().getBlockAt(head.getX(), head.getY() + pasteOffset, head.getZ()));
             }
+            player.sendMessage(Utils.getInfoMessageFormat("Successfully loaded §6" + heads.size() + " §aheads!"));
             return;
         } catch (FileNotFoundException ex) {
             Bukkit.getLogger().log(Level.SEVERE, ex.getMessage(), ex);
         }
-        player.sendMessage("An error occurred while saving heads! Please try again!");
+        player.sendMessage(Utils.getErrorMessageFormat("An error occurred while saving heads! Please try again!"));
     }
 
     /**
@@ -101,9 +105,7 @@ public abstract class SkullCreator {
             }
             GameProfile gameProfile = (GameProfile) profileField.get(skull);
             Collection<Property> properties = gameProfile.getProperties().get("textures");
-            String propertyValue = properties.iterator().next().getValue();
-            Bukkit.getLogger().log(Level.INFO, "Property Value: " + propertyValue);
-            return propertyValue;
+            return properties.iterator().next().getValue();
         } catch (NoSuchFieldException | IllegalAccessException ex) {
             Bukkit.getLogger().log(Level.SEVERE, "An error occurred while updating texture of skull!", ex);
         }
