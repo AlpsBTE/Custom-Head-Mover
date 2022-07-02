@@ -176,9 +176,7 @@ public abstract class SkullCreator {
         try {
             return WorldEdit.getInstance().getSessionManager().findByName(player.getName()).getSelection(
                     WorldEdit.getInstance().getSessionManager().findByName(player.getName()).getSelectionWorld());
-        } catch (IncompleteRegionException ex) {
-            Bukkit.getLogger().log(Level.SEVERE, ex.getMessage(), ex);
-        } catch (NullPointerException ignore) {}
+        } catch (IncompleteRegionException | NullPointerException ignore) {}
         return null;
     }
 }
